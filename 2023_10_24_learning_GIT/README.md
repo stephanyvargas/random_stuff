@@ -79,8 +79,21 @@ git rebase main
 
 #### Moving around in GIT
 
-1. **HEAD** HEAD is the symbolic name for the currently checked out commit -- it's essentially what commit you're working on top of. HEAD always points to the most recent commit which is reflected in the working tree. Most git commands which make changes to the working tree will start by changing HEAD. Normally HEAD points to a branch name (like bugFix). When you commit, the status of bugFix is altered and this change is visible through HEAD.
-
+1. **HEAD** 
+	- HEAD is the symbolic name for the currently checked out commit -- it's essentially what commit you're working on top of. 
+	- HEAD always points to the most recent commit which is reflected in the working tree. 
+	- Most git commands which make changes to the working tree will start by changing HEAD. 
+	- Normally HEAD points to a branch name (like bugFix). When you commit, the status of bugFix is altered and this change is visible through HEAD.
 	- Detaching HEAD: Detaching HEAD just means attaching it to a commit instead of a branch. This is what it looks like beforehand: `HEAD -> main -> C1`
 	- Detaching the head of `bugFix` and attaching it to the commit is achieved by using `git checkout C4`.
+
+
 	- Way more information about HEAD here https://initialcommit.com/blog/what-is-git-head#:~:text=In%20Git%2C%20a%20head%20is,recent%20commit)%20of%20that%20branch.
+	- In Git, a head is a ref that points to the tip (latest commit) of a branch. 
+	- You can view your repository’s heads in the path `.git/refs/heads/`. In this path you will find one file for each branch, and the content in each file will be the commit ID of the tip (most recent commit) of that branch.
+	- For example, there is literally a file called `master` in that path that contains the commit ID of the tip of the master branch. When you make a new commit on a branch or pull commits from a remote, the head file for that branch is always updated to reflect the commit ID of the tip of the branch. In this way, your branch name ref always stays in sync with the most recent commit at the tip of the branch.
+	- So what is the difference between capitalized Git HEAD and lowercase Git head?
+
+> In lowercase, "head" is a general term that means any commit that represents a branch tip. In uppercase, "HEAD" is a specific Git ref that always points to the commit currently checked out in the working directory.
+
+	- Useful to check previous commits and files 
