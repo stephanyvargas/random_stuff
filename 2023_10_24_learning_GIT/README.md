@@ -38,7 +38,13 @@ Now we need to learn some kind of way of combining the work from two different b
 Merging in Git creates a special commit that has two unique parents. A commit with two parents essentially means "I want to include all the work from this parent over here and this one over here, and the set of all their parents."
 
 <p align="center">
-<img src="git_merge_fig.png" width="200" height="200" />
+<img src="git_merge_fig.png"/> % width="800" height="400" />
 </p>
 
-
+```shell
+git checkout -b bugFix
+git commit 
+git checkout main
+git commit 
+git merge bugFix
+```
