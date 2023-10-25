@@ -38,13 +38,36 @@ Now we need to learn some kind of way of combining the work from two different b
 Merging in Git creates a special commit that has two unique parents. A commit with two parents essentially means "I want to include all the work from this parent over here and this one over here, and the set of all their parents."
 
 <p align="center">
-<img src="git_merge_fig.png"/> % width="800" height="400" />
+<img src="git_merge_fig.png" width="800" height="400" />
 </p>
 
+**Solution to 3rd exercise**
 ```shell
 git checkout -b bugFix
 git commit 
 git checkout main
 git commit 
 git merge bugFix
+```
+
+#### Rebase
+The second way of combining work between branches is rebasing. Rebasing essentially takes a set of commits, "copies" them, and plops them down somewhere else.
+
+While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits. 
+The *commit log / history* of the repository will be a lot cleaner if only rebasing is allowed.
+
+<p align="center">
+<img src="git_rebase.png" width="800" height="400" />
+</p>
+
+
+**Solution to problem 4**
+We would like to move our work from bugFix directly onto the work from main. That way it would look like these two features were developed sequentially, when in reality they were developed in parallel.
+```shell
+git checkout -b bugFix
+git commit 
+git checkout main
+git commit
+git checkout bugFix
+git rebase main
 ```
