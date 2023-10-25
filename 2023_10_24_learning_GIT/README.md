@@ -95,11 +95,14 @@ git rebase main
 	- So what is the difference between capitalized Git HEAD and lowercase Git head?
 
 > In lowercase, "head" is a general term that means any commit that represents a branch tip. In uppercase, "HEAD" is a specific Git ref that always points to the commit currently checked out in the working directory.
+>
+
 
 	- Useful to check previous commits and files, example follows
 
+
 ```shell
-➜  2023_10_24_learning_GIT git:(master) ✗ git log --oneline                                                                                                                                    [🐍 lewagon]
+➜  2023_10_24_learning_GIT git:(master) ✗ git log --oneline
 98a1060 (HEAD -> master, origin/master) add information about HEAD in git
 f0a862b rebase schema
 0dd7e9d add rebase info
@@ -109,7 +112,7 @@ fbe8939 changed figure
 9448885 add a figure
 6302aa6 add git branching
 378830b first commit
-➜  2023_10_24_learning_GIT git:(master) git checkout 378830b                                                                                                                                   [🐍 lewagon]
+➜  2023_10_24_learning_GIT git:(master) git checkout 378830b
 Note: checking out '378830b'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -122,16 +125,20 @@ do so (now or later) by using -b with the checkout command again. Example:
   git checkout -b <new-branch-name>
 
 HEAD is now at 378830b first commit
-➜  2023_10_24_learning_GIT git:((378830b...)) ls                                                                                                                                               [🐍 lewagon]
+➜  2023_10_24_learning_GIT git:((378830b...)) ls
 README.md
 ➜  2023_10_24_learning_GIT git:((378830b...)) nano README.md   
 ```
 
 > This places Git into a detached HEAD state, which means that HEAD is not currently pointing to a branch head (branch tip). In this state, you can view and edit any files in your working directory, exactly as they were in that commit.
+>
+
 
 	- Head can also be used to see changes from files
+
+
 ```shell
-➜  2023_10_24_learning_GIT git:(master) ✗ git show HEAD                                                                                                                                        [🐍 lewagon]
+➜  2023_10_24_learning_GIT git:(master) ✗ git show HEAD
 commit f25e8c9700470762f3e7ad775e87b6f8542eabd6 (HEAD -> master, origin/master)
 Author: stephanyvargas <yostephy@hotmail.com>
 Date:   Wed Oct 25 12:01:15 2023 +0900
